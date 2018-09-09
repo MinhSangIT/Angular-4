@@ -1,0 +1,7 @@
+<ng-container *ngFor="let item of arrPeople">
+    <!-- render ra 1 app-persion component lúc trước khai báo -->
+  <app-persion 
+    [age]="item.age"
+    (my_click)="event($event)"
+  ></app-persion>
+</ng-container>

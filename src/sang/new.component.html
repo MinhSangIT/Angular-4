@@ -1,0 +1,14 @@
+<img [src]="image" alt="">
+<p [hidden]=flage>{{ vi }}</p>
+<button (click)= change()>Change</button>
+<input type="text" placeholder="enter name" [(ngModel)]="name" #value>
+<label [style.color] = "name.length %2 ===0 ?'red':'blue'">tên: {{ name }}</label>
+<br>
+<label for="">{{value.value | json}}</label>
+<label [style.color] = "'red'">Nguyễn Vũ Minh Sang</label>
+
+<br>
+<label [ngStyle]="name.length %2 === 0 ? even : odd">fsfsdf</label>
+<br>
+<div [ngClass]="current"></div>
+

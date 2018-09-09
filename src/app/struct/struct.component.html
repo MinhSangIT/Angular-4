@@ -1,0 +1,56 @@
+<!-- <p *ngIf="flage">
+  struct works!
+</p>
+<button (click)="flage=!flage">Toogle</button>
+
+<ul>
+  <li *ngFor="let x of heroes">
+    <p>{{ 's: ' + x }}</p>
+  </li>
+</ul> -->
+<br>
+<br>
+<select [(ngModel)]="combobox">
+  <option value="all" selected>Hiển thị all</option>
+  <option value="true">đã thuộc</option>
+  <option value="false">chưa thuộc</option>
+</select>
+<br>
+<br>
+<ul>
+
+
+  <!-- hiện thị thuộc -->
+  <!-- <div *ngIf="combobox === 'true'">
+    <div *ngFor="let model of arrWords">
+      <div class="bacgroud" *ngIf="model.memorized===true">
+        <p [ngStyle]="model.memorized? odd : even" [ngClass]="{'class': true}">
+          {{model.en}}: {{model.vn}}
+        </p>
+        <button (click)="Xoa(model.id)">Xóa</button>
+      </div>
+      <br>
+    </div>
+  </div> -->
+
+  <div *ngFor="let model of arrWords">
+    <div class="bacgroud" *ngIf="checkchage(model.memorized)">
+      <p [ngStyle]="model.memorized? odd : even" [ngClass]="{'class': true}">
+        {{model.en}}: {{model.vn}}
+      </p>
+      <button (click)="Xoa(model.id)">Xóa</button>
+      <button (click)="model.memorized=!model.memorized">
+        {{model.memorized ?'chưa thuoc':'đã thuộc'}}</button>
+    </div>
+    <br>
+  </div>
+
+</ul>
+
+<div *ngIf="!isshow">
+  <input type="text" placeholder="enter en" [(ngModel)]="en">
+  <input type="text" placeholder="enter value" [(ngModel)]="vn">
+  <br>
+  <button (click)="add()">Add</button>
+</div>
+<button (click)="isshow = !isshow" *ngIf="isshow">thêm từ mới</button>
