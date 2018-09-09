@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChildComponent } from './child.component';
 
 @Component({
   selector: 'app-parent',
-  template: `<h3>{{ value }}</h3>
-              <app-child (my_click)='event($event)'></app-child>
+  template: `
+    <button (click)="add()">ADD</button>
+    <app-child></app-child>
   `
 })
 export class ParentComponent implements OnInit {
-  value = 0;
+  @ViewChild(ChildComponent)
+  object: ChildComponent; // object đại diện cho all param trong ChildComponent
 
-  event (isAdd) {
-    isAdd ? this.value = this.value + 1 : this.value = this.value - 1;
+  add() {
+    this.object.value++;
   }
   constructor() { }
 
@@ -18,3 +21,9 @@ export class ParentComponent implements OnInit {
   }
 
 }
+
+// không sử dụng viewchild
+// <button (click)="mychild.value = mychild.value +1">ADD</button>
+//     <app-child #mychild></app-child>
+// mychild là object đại diện cho all param trong ChildComponent
+
