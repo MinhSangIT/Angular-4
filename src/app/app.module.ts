@@ -9,6 +9,7 @@ import { PersionComponent } from './persion/persion.component';
 import { ListPersionComponent } from './list-persion/list-persion.component';
 import { ChildComponent } from './child.component';
 import { ParentComponent } from './parent.component';
+import { CardComponent } from './card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ParentComponent } from './parent.component';
     PersionComponent,
     ListPersionComponent,
     ChildComponent,
-    ParentComponent
+    ParentComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
